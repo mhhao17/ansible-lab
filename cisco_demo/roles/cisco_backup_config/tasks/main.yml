@@ -10,6 +10,12 @@
     line: "Building configuration..."
     state: absent
 
+- name: Remove Non Config Lines - 2
+  lineinfile:
+    path: "{{ config_output.backup_path }}"
+    line: "! Last configuration change at "
+    state: absent
+
 - name: Remove Non Config Lines using Regular Expression
   lineinfile:
     path: "{{ config_output.backup_path }}"
